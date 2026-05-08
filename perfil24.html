@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MECM - María Elena Calle Mamani</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f5e6e8;
+            color: #333333;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Estilos para el encabezado */
+        .header-section {
+            background-color: #ffd4e5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        .header-section h1 {
+            color: #ff1493;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 0;
+        }
+
+        .header-stars {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .header-stars img {
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .header-stars img:hover {
+            transform: scale(1.2) rotate(15deg);
+        }
+
+        /* Divisor decorativo */
+        hr {
+            border: 2px solid #ff69b4;
+            margin: 30px 0;
+            opacity: 1;
+        }
+
+        /* Secciones principales */
+        .section-title {
+            color: #ff1493;
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #ff69b4;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* Card personalizada */
+        .card-custom {
+            background-color: #ffd4e5;
+            border: none;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-custom h3 {
+            color: #ff1493;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        .card-custom ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card-custom ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #333333;
+        }
+
+        .card-custom ul li:before {
+            content: "💖";
+            position: absolute;
+            left: 0;
+        }
+
+        /* Grid responsivo */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .grid-item {
+            background-color: hsl(340, 100%, 92%);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .grid-item:hover {
+            background-color: #ffe6f0;
+            transform: scale(1.05);
+        }
+
+        .grid-item h3 {
+            color: #ff1493;
+            margin-bottom: 15px;
+        }
+
+        /* Galería de fotos - Marquee */
+        .photo-carousel {
+            background-color: #FFE3FF;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        /* Video responsivo */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+
+        /* Tabla mejorada */
+        .table-custom {
+            background-color: #ffd4e5;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .table-custom thead {
+            background-color: #ff69b4;
+            color: white;
+        }
+
+        .table-custom thead th {
+            border: none;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .table-custom tbody td {
+            border: none;
+            padding: 15px;
+            border-bottom: 1px solid #ffb3d9;
+            background-color: #ffe6f0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333333;
+            color: #ff69b4;
+            padding: 30px 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        footer h3 {
+            color: #ff69b4;
+            margin-bottom: 20px;
+        }
+
+        footer a img {
+            margin: 0 10px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: brightness(1);
+        }
+
+        footer a img:hover {
+            transform: scale(1.3) translateY(-5px);
+            filter: brightness(1.2);
+        }
+
+        /* Animaciones */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Botón personalizado */
+        .btn-custom {
+            background-color: #ff1493;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #ff69b4;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Navbar Estático */
+        .navbar-custom {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+            padding: 0;
+            margin: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .navbar-custom .navbar-brand {
+            color: white !important;
+            font-weight: bold;
+            font-size: 20px;
+            margin-right: auto;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-custom .nav-link {
+            color: white !important;
+            font-weight: 500;
+            padding: 10px 15px !important;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .navbar-custom .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            transform: translateY(-2px);
+        }
+
+        .navbar-custom .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+        }
+
+        .navbar-custom .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .navbar-custom .navbar-toggler:focus {
+            box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+        }
+
+        /* Ajuste para el contenido debajo del navbar */
+        body {
+            padding-top: 70px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .header-section h1 {
+                font-size: 24px;
+            }
+
+            .navbar-custom .nav-link {
+                font-size: 12px;
+                padding: 8px 10px !important;
+            }
+
+            body {
+                padding-top: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#inicio">ELENITAMAR</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#datos-personales">Datos Personales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#datos-generales">Datos Generales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#familia">Mi Familia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#canciones">Canciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#juegos">Juegos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#mision">Misión y Visión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#proyectos">Proyectos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ENCABEZADO -->
+    <div class="container mt-4" id="inicio">
+        <div class="header-section">
+            <div class="header-stars">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Estrella_Dorada.png" alt="estrella"
+                    width="50">
+            </div>
+            <h1>MARIA ELENA CALLE MAMANI "ELENITAMAR"</h1>
+            <div class="header-stars">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Estrella_Dorada.png" alt="estrella"
+                    width="50">
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- DATOS PERSONALES -->
+        <h2 class="section-title" id="datos-personales">Datos Personales</h2>
+
+        <div class="row mt-4">
+            <div class="col-lg-8">
+                <div class="card-custom">
+                    <p><strong>Hola, soy </strong><strong>María Elena Calle Mamani</strong>, aunque prefiero que me
+                        llamen <strong>Elena</strong>.</p>
+                    <p>Soy <em>collita de corazón</em> ❤️.</p>
+                    <p>Nací el <strong>26 de febrero de 2005</strong> y actualmente tengo <strong>21 años</strong>.</p>
+                    <p>Vivo en la hermosa ciudad de <strong>La Paz</strong>, Bolivia.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <img src="Perfil/img/myfoto.jpg" alt="mifoto" class="img-fluid rounded"
+                    style="box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+            </div>
+        </div>
+
+        <!-- GALERIA DE FOTOS CARRUSEL CON MARQUEE -->
+        <div class="photo-carousel">
+            <h3 style="color: #ff69b4; text-align: center; margin-bottom: 15px;">MIS FOTOS</h3>
+            <marquee behavior="scroll" direction="left" scrollamount="3"
+                style="background-color: #f9d9ff; padding: 15px; border-radius: 8px; margin: 10px 0;"
+                onmouseover="this.stop();" onmouseout="this.start();">
+                <img src="Perfil/img/mari1.jpg" alt="mari1" width="145" class="rounded"
+                    style="margin: 0 15px; vertical-align: middle;">
+                <img src="Perfil/img/mari2.jpg" alt="mari2" width="220" class="rounded"
+                    style="margin: 0 15px; vertical-align: middle;">
+                <img src="Perfil/img/mari3.jpg" alt="mari3" width="300" class="rounded"
+                    style="margin: 0 15px; vertical-align: middle;">
+                <img src="Perfil/img/mari4.jpg" alt="mari4" width="240" class="rounded"
+                    style="margin: 0 15px; vertical-align: middle;">
+                <img src="Perfil/img/mari5.jpg" alt="mari5" width="320" class="rounded"
+                    style="margin: 0 15px; vertical-align: middle;">
+                <img src="Perfil/img/mari6.jpg" alt="mari6" width="180" class="rounded"
+                    style="margin: 0 15px; vertical-align: middle;">
+            </marquee>
+        </div>
+
+        <hr>
+
+        <!-- DATOS GENERALES -->
+        <h2 class="section-title" id="datos-generales">Datos Generales 💻</h2>
+
+        <div class="card-custom mt-3">
+            <ul>
+                <li><strong>Universidad:</strong> Universidad Salesiana de Bolivia</li>
+                <li><strong>Carrera:</strong> Ingeniería de Sistemas</li>
+                <li><strong>Semestre:</strong> 7mo semestre</li>
+                <li><strong>Estudios adicionales:</strong> Inglés básico en el Instituto CEA Don Bosco</li>
+                <li><strong>Idiomas:</strong> Español e Inglés básico</li>
+            </ul>
+            <p class="mt-3"><strong>Actividad diaria:</strong> Por las mañanas estudio en la universidad y por las
+                tardes asisto a clases de inglés.</p>
+        </div>
+
+        <!-- Actividad Diaria -->
+        <div class="row mt-4 text-center">
+            <div class="col-md-4">
+                <img src="Perfil/img/uni.jpg" alt="universidad" class="img-fluid rounded"
+                    style="max-width: 350px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+            </div>
+            <div class="col-md-4 d-flex align-items-center justify-content-center">
+                <img src="Perfil/img/flecha.jpg" alt="flecha" class="img-fluid rounded" style="max-width: 150px;">
+            </div>
+            <div class="col-md-4">
+                <img src="Perfil/img/cea.jpg" alt="cea" class="img-fluid rounded"
+                    style="max-width: 300px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+            </div>
+        </div>
+
+        <!-- HOBBIES, GUSTOS, OBJETIVOS, VALORES -->
+        <div class="grid-container mt-4">
+            <div class="grid-item">
+                <h3>Hobbies</h3>
+                <ul style="text-align: left; list-style: none; padding-left: 0;">
+                    <li>⚽ Fútbol</li>
+                    <li>🎨 Dibujar ciudades y anime</li>
+                    <li>🎵 Tocar instrumentos</li>
+                    <li>📺 Ver anime, películas y leer mangas</li>
+                    <li>🎮 Videojuegos</li>
+                </ul>
+                <div class="row mt-3">
+                    <div class="col-4"><img src="Perfil/img/dibujo0.jpg" alt="dibujo0" class="img-fluid rounded"></div>
+                    <div class="col-4"><img src="Perfil/img/dibujo1.jpg" alt="dibujo1" class="img-fluid rounded"></div>
+                    <div class="col-4"><img src="Perfil/img/dibujo2.jpg" alt="dibujo2" class="img-fluid rounded"></div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <h3>Gustos e Intereses</h3>
+                <ul style="text-align: left; list-style: none; padding-left: 0;">
+                    <li>🎶 Música (city pop de los 80s)</li>
+                    <li>📷 Fotografía</li>
+                    <li>🎬 Edición de videos</li>
+                    <li>🎭 Cosplay y presentaciones creativas</li>
+                </ul>
+                <div class="row mt-3">
+                    <div class="col-6"><img src="Perfil/img/fotos1 (1).jpg" alt="fotos1" class="img-fluid rounded">
+                    </div>
+                    <div class="col-6"><img src="Perfil/img/fotos2.jpg" alt="fotos2" class="img-fluid rounded"></div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <h3>Objetivos</h3>
+                <ul style="text-align: left; list-style: none; padding-left: 0;">
+                    <li>🎓 Terminar mi carrera en Ingeniería de Sistemas</li>
+                    <li>🗣️ Terminar mi técnico medio en Inglés</li>
+                    <li>💬 Dominar el inglés</li>
+                    <li>📊 Especializarme en base de datos y ciencia de datos</li>
+                    <li>💪 Ser más disciplinada y constante</li>
+                    <li>🤝 Mejorar mi comunicación</li>
+                    <li>✈️ Viajar (EE. UU., Japón y otros países)</li>
+                </ul>
+            </div>
+
+            <div class="grid-item">
+                <h3>Valores</h3>
+                <ul style="text-align: left; list-style: none; padding-left: 0;">
+                    <li>✅ Responsabilidad</li>
+                    <li>☑️ Honestidad</li>
+                    <li>🤲 Respeto</li>
+                    <li>🧠 Curiosidad</li>
+                    <li>💝 Lealtad</li>
+                    <li>🙏 Gratitud</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- MI FAMILIA -->
+        <h2 class="section-title" id="familia">Mi Familia 👨‍👩‍👧</h2>
+
+        <div class="card-custom mt-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="Perfil/img/familia.jpg" alt="familia" class="img-fluid rounded"
+                        style="max-width: 450px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                </div>
+                <div class="col-md-6">
+                    <p>Mi familia 👨‍👩‍👧 es muy importante para mí y está formada por personas que quiero mucho.</p>
+                    <p><strong>Mis papás:</strong> Carlos y Elizabeth.</p>
+                    <p><strong>Mis hermanos:</strong></p>
+                    <ul>
+                        <li>Carla y Carlos (Charly) (por parte de mi papá)</li>
+                        <li>Cristhofer (por parte de mi mamá)</li>
+                        <li>Yo, Alejandra y Valentina (por ambos padres)</li>
+                    </ul>
+                    <p style="margin-top: 20px;"><em>Mi abuelita Elena fue una persona muy especial en mi vida y la
+                            recordaré siempre con mucho cariño, mi segunda mamá ❤️.</em></p>
+                    <img src="Perfil/img/mamaelena.jpg" alt="foto mama elena"
+                        style="max-width: 150px; border-radius: 8px; margin-top: 10px;">
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- MIS CANCIONES FAVORITAS -->
+        <h2 class="section-title" id="canciones">🎧 Mis Canciones Favoritas 🎧</h2>
+
+        <div class="card-custom mt-3">
+            <h4 style="color: #ff1493;">🎵 プラスティック・ラブ (Plastic Love)</h4>
+            <p><strong>Artista:</strong> Mariya Takeuchi</p>
+            <p><strong>Por qué me gusta:</strong></p>
+            <p>Me gusta la canción Plastic Love porque no solo tiene un ritmo agradable dentro del estilo city pop, sino
+                que también transmite un mensaje profundo sobre las relaciones modernas y la superficialidad emocional.
+                A través de su letra, muestra la historia de una persona que intenta protegerse del dolor del amor
+                convirtiéndolo en algo más ligero y superficial, lo cual refleja sentimientos de soledad y desconexión.
+
+                Además, la combinación entre una melodía alegre y una letra melancólica crea un contraste muy
+                interesante, haciendo que la canción sea tanto agradable de escuchar como reflexiva.</p>
+
+            <div class="row mt-3">
+                <div class="col-lg-6">
+                    <h5 style="color: #ff69b4; margin-top: 15px;">Letra:</h5>
+                    <div
+                        style="background-color: #fff0f5; padding: 15px; border-radius: 8px; max-height: 500px; overflow-y: auto; font-size: 14px;">
+                        <p><i>
+
+                                Con un beso repentino<br>
+                                突然のキスや<br>
+                                totsuzen no kisu ya<br><br>
+
+                                Y una mirada ardiente<br>
+                                熱いまなざしで<br>
+                                atsui manazashi de<br><br>
+
+                                Que el programa del amor<br>
+                                恋のプログラムを<br>
+                                koi no puroguramu wo<br><br>
+
+                                No te enloquezca, por favor<br>
+                                狂わせないでね<br>
+                                kuruwasenai de ne<br><br>
+
+
+                                Maneja bien los encuentros<br>
+                                出逢いと別れ<br>
+                                deai to wakare<br><br>
+
+                                Y las despedidas<br>
+                                上手に打ち込んで<br>
+                                jouzu ni uchikonde<br><br>
+
+                                Si el tiempo pasa, esto terminará<br>
+                                時間がくれば<br>
+                                jikan ga kureba<br><br>
+
+                                ¡No te apresures!<br>
+                                終わる don't hurry!<br>
+                                owaru don't hurry!<br><br>
+
+
+                                Estoy lastimada por amor<br>
+                                愛に傷ついた<br>
+                                ai ni kizutsuita<br><br>
+
+                                Siempre desde ese día<br>
+                                あの日からずっと<br>
+                                ano hi kara zutto<br><br>
+
+                                He estado viviendo una vida<br>
+                                昼と夜が逆の<br>
+                                hiru to yoru ga gyaku no<br><br>
+
+                                En la que el día y la noche están invertidos<br>
+                                暮らしを続けて<br>
+                                kurashi wo tsuzukete<br><br>
+
+                                En la discoteca de moda<br>
+                                はやりのdiscoで<br>
+                                hayari no disco de<br><br>
+
+                                Bailando toda la noche<br>
+                                踊り明かすうちに<br>
+                                odori akasu uchi ni<br><br>
+
+                                Aprendí esa magia<br>
+                                おぼえた魔術なのよ<br>
+                                oboeta majutsu na no yo<br><br>
+
+                                ¡Lo siento!<br>
+                                I'm sorry!<br>
+                                I'm sorry!<br><br>
+
+
+                                Nunca me ames<br>
+                                私のことを決して<br>
+                                watashi no koto wo kesshite<br><br>
+
+                                De verdad<br>
+                                本気で愛さないで<br>
+                                honki de aisanai de<br><br>
+
+                                El amor es solo un juego<br>
+                                恋なんてただのゲーム<br>
+                                koi nante tada no geemu<br><br>
+
+                                Si te diviertes, está bien<br>
+                                楽しめばそれでいいの<br>
+                                tanoshimeba sore de ii no<br><br>
+
+                                Los vestidos y zapatos llamativos<br>
+                                閉ざした心を飾る<br>
+                                tozashita kokoro wo kazaru<br><br>
+
+                                Que adornan mi corazón cerrado<br>
+                                派手なドレスも靴も<br>
+                                hade na doresu mo kutsu mo<br><br>
+
+                                Son amigos solitarios<br>
+                                孤独な友だち<br>
+                                kodoku na tomodachi<br><br>
+
+
+                                Las personas que me invitan<br>
+                                私を誘う人は<br>
+                                watashi wo sasou hito wa<br><br>
+
+                                Siempre tienen algo irónico<br>
+                                皮肉なものねいつも<br>
+                                hiniku na mono ne itsumo<br><br>
+
+                                Se parecen a él ¿Por qué?<br>
+                                彼に似てるわなぜか<br>
+                                kare ni niteru wa naze ka<br><br>
+
+                                Se superponen con los recuerdos<br>
+                                思い出と重なり合う<br>
+                                omoide to kasanariau<br><br>
+
+                                Aunque se rompa mi copa<br>
+                                グラスを落として急に<br>
+                                gurasu wo otoshite kyuu ni<br><br>
+
+                                O comience a llorar<br>
+                                涙ぐんでもわけは<br>
+                                namidagunde mo wake wa<br><br>
+
+                                No preguntes el porqué<br>
+                                尋ねないでね<br>
+                                tazunenai de ne<br><br>
+
+
+                                En la autopista nocturna<br>
+                                夜更けの高速で<br>
+                                yofuke no kousoku de<br><br>
+
+                                Cuando duermo en la madrugada<br>
+                                眠りにつくころ<br>
+                                nemuri ni tsuku koro<br><br>
+
+                                Solamente las luces de neón<br>
+                                ハロゲンライトだけ<br>
+                                harogen raito dake<br><br>
+
+                                Brillan misteriosamente<br>
+                                妖しく輝く<br>
+                                ayashiku kagayaku<br><br>
+
+                                Aunque una voz susurre<br>
+                                氷のように<br>
+                                koori no you ni<br><br>
+
+                                Que soy una mujer fría<br>
+                                冷たい女だと<br>
+                                tsumetai onna da to<br><br>
+
+                                Como el hielo<br>
+                                ささやく声がしても<br>
+                                sasayaku koe ga shitemo<br><br>
+
+                                ¡No te preocupes!<br>
+                                Don't worry!<br>
+                                Don't worry!<br><br>
+
+
+                                Solo estoy jugando<br>
+                                I'm just playing games<br>
+                                I'm just playing games<br><br>
+
+                                Sé que esto es amor de plástico<br>
+                                I know that's plastic love<br>
+                                I know that's plastic love<br><br>
+
+                                Baila al ritmo de plástico<br>
+                                Dance to the plastic beat<br>
+                                Dance to the plastic beat<br><br>
+
+                                Otro amanecer llega<br>
+                                Another morning comes<br>
+                                Another morning comes<br><br>
+
+
+                                Solo estoy jugando<br>
+                                I'm just playing games<br>
+                                I'm just playing games<br><br>
+
+                                Sé que esto es amor de plástico<br>
+                                I know that's plastic love<br>
+                                I know that's plastic love<br><br>
+
+                                Baila al ritmo de plástico<br>
+                                Dance to the plastic beat<br>
+                                Dance to the plastic beat<br><br>
+
+                                Otro amanecer llega<br>
+                                Another morning comes<br>
+                                Another morning comes<br><br>
+
+
+                                Solo estoy jugando<br>
+                                I'm just playing games<br>
+                                I'm just playing games<br><br>
+
+                                Sé que esto es amor de plástico<br>
+                                I know that's plastic love<br>
+                                I know that's plastic love<br><br>
+
+                                Baila al ritmo de plástico<br>
+                                Dance to the plastic beat<br>
+                                Dance to the plastic beat<br><br>
+
+                                Otro amanecer llega<br>
+                                Another morning comes<br>
+                                Another morning comes<br><br>
+
+                            </i></p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h5 style="color: #ff69b4; margin-top: 15px;">Video:</h5>
+                    <div class="video-container">
+                        <video controls>
+                            <source
+                                src="Perfil/videos/竹内まりや - プラスティック・ラブ (feat.山下達郎) [Live Version _ 2000_日本武道館](720P_HD).mp4"
+                                type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OTRAS CANCIONES -->
+        <h2 class="section-title mt-4">Más de mis Canciones Favoritas</h2>
+
+        <div class="grid-container mt-3" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+            <div class="card-custom">
+                <h5 style="color: #ff1493;">🎷 Jazz</h5>
+                <p><strong>Can I Sing......For You - Masayoshi Takanaka</strong></p>
+                <div class="video-container">
+                    <video controls style="max-height: 300px;">
+                        <source src="Perfil/videos/Can I Sing......For You(720P_HD).mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <div class="card-custom">
+                <h5 style="color: #ff1493;">💃 Dance-Pop</h5>
+                <p><strong>Remember the Time - Michael Jackson</strong></p>
+                <div class="video-container">
+                    <video controls style="max-height: 300px;">
+                        <source
+                            src="Perfil/videos/Remember The Time • Michael Jackson _ Sub. español   Video (Remastered)(720P_HD).mp4"
+                            type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <div class="card-custom">
+                <h5 style="color: #ff1493;">🎤 Rap</h5>
+                <p><strong>Susurro - Ocasional Talento</strong></p>
+                <div class="video-container">
+                    <video controls style="max-height: 300px;">
+                        <source
+                            src="Perfil/videos/Ocasional Talento - Susurro (Oficial) [PROD. Illumina Beats __ C. H.Killah](720P_HD).mp4"
+                            type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <div class="card-custom">
+                <h5 style="color: #ff1493;">🎹 K-pop</h5>
+                <p><strong>Love Killa - Monsta X</strong></p>
+                <div class="video-container">
+                    <video controls style="max-height: 300px;">
+                        <source src="Perfil/videos/MONSTA X 몬스타엑스 _Love Killa_ MV(720P_HD).mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <div class="card-custom">
+                <h5 style="color: #ff1493;">🎸 Rock</h5>
+                <p><strong>Nothing Else Matters - Metallica</strong></p>
+                <div class="video-container">
+                    <video controls style="max-height: 300px;">
+                        <source src="Perfil/videos/Metallica_ Nothing Else Matters (Official Music Video)(480P).mp4"
+                            type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <div class="card-custom">
+                <h5 style="color: #ff1493;">⛩️ Anime</h5>
+                <p><strong>Long Kiss Goodbye - Halcali</strong></p>
+                <div class="video-container">
+                    <video controls style="max-height: 300px;">
+                        <source src="Perfil/videos/Naruto Shippuden - Ending 7 _ Long Kiss Goodbye(720P_HD).mp4"
+                            type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- MIS JUEGOS -->
+        <h2 class="section-title" id="juegos">Mis Juegos 🎮</h2>
+
+        <h3 style="color: #ff1493; margin-top: 25px;">🎮 Juegos que juego sola</h3>
+
+        <div class="grid-container mt-3">
+            <div class="card-custom">
+                <h5 style="color: #ff1493;">⭐ Star Wars Jedi Survivor 🚀</h5>
+                <img src="https://media.vandal.net/i/1280x720/4-2023/202342810142811_1.jpg.webp" alt="star-wars"
+                    class="img-fluid rounded my-3">
+                <p>Aventura y exploración. Actualmente lo estoy jugando, regresando a la franquicia de Star Wars después
+                    de muchos años sin jugar algo que no fuera la ps2.</p>
+            </div>
+
+            <div class="card-custom">
+                <h5 style="color: #ff1493;">👻 Outlast</h5>
+                <img src="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_Outlast2_image1600w.jpg"
+                    alt="outlast" class="img-fluid rounded my-3">
+                <p>Terror y suspenso. Un juego popular en el cual se vive una experiencia de miedo y tensión constante.
+                    Aun no lo he terminado, pero de verdad me encanta.</p>
+            </div>
+
+            <div class="card-custom">
+                <h5 style="color: #ff1493;">🔫 Call of Duty</h5>
+                <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2000950/capsule_616x353.jpg?t=1678294805"
+                    alt="cod" class="img-fluid rounded my-3">
+                <p>Acción y disparos. Es un juego deseado el cual estoy ahorrando me atrae mucho la toda la saga y
+                    cuando termine el semeste espero y me alcance para comprarlo.</p>
+            </div>
+
+            <div class="card-custom">
+                <h5 style="color: #ff1493;">🚗 Midnight Club 3</h5>
+                <img src="https://media.vandal.net/m/3457/midnight-club-3-dub-edition-201421222128_1.jpg" alt="midnight"
+                    class="img-fluid rounded my-3">
+                <p>Carreras (mi infancia). Es y sera unos de mis juegos favoritos. Las calles, autos, las canciones y
+                    carreras, ya me se hasta que atajos tomar para ganar este juego un juego que para mi es mejor que
+                    need for speed.</p>
+            </div>
+        </div>
+
+        <h3 style="color: #ff1493; margin-top: 30px;">🧑‍🤝‍🧑 Juegos con amigos</h3>
+
+        <div class="card-custom mt-3">
+            <h5 style="color: #ff1493;">🎯 Peak</h5>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://assets.nuuvem.com/image/upload/t_product_sharing_banner/v1/products/68e58654c35c6601c0406f64/sharing_images/bwa9bcaiqvheedwddw6g.jpg"
+                        alt="peak" class="img-fluid rounded">
+                </div>
+                <div class="col-md-6">
+                    <p>Juego divertido para compartir con amigos. Actualmente lo estoy jugando con mis amigos del
+                        colegio y me encanta. Me distrae de todo el rollo de la universidad y mis clases de la tarde
+                        aunque me cuesta encontrar tiempo para jugarlo y el echo de cordinar con mis amigos.</p>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- MISIÓN Y VISIÓN -->
+        <h2 class="section-title" id="mision">Misión y Visión 🎯</h2>
+
+        <div class="row mt-4">
+            <div class="col-lg-6">
+                <div class="grid-item">
+                    <h3>Misión</h3>
+                    <p>Mi misión es formarme como estudiante de Ingeniería de Sistemas, desarrollando mis habilidades
+                        académicas y personales, siendo constante en mi aprendizaje y esforzándome por mejorar cada día.
+                    </p>
+                    <p>Busco adquirir nuevos conocimientos en el área tecnológica, fortalecer mi disciplina y continuar
+                        aprendiendo idiomas como el inglés, con el fin de prepararme para futuros desafíos
+                        profesionales.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="grid-item">
+                    <h3>Visión</h3>
+                    <p>Mi visión es convertirme en una profesional capacitada en el área de sistemas, especializándome
+                        en bases de datos y ciencia de datos, capaz de enfrentar nuevos retos y aportar con soluciones
+                        tecnológicas.</p>
+                    <p>Aspiro a trabajar en empresas en el extranjero, viajar, conocer nuevas culturas y seguir
+                        creciendo tanto profesional como personalmente y ayudar a mi familia.</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="color: #ff1493; margin-top: 30px;">Representación del Futuro</h3>
+
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <img src="Perfil/img/yofuturo3.png" alt="futuro3" class="img-fluid rounded"
+                    style="box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+            </div>
+            <div class="col-md-4">
+                <img src="Perfil/img/yofuturo2.png" alt="futuro2" class="img-fluid rounded"
+                    style="box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+            </div>
+            <div class="col-md-4">
+                <img src="Perfil/img/yofuturo4.png" alt="futuro4" class="img-fluid rounded"
+                    style="box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- PROYECTOS DESTACADOS -->
+        <h2 class="section-title" id="proyectos">Tareas y Proyectos Destacados</h2>
+
+        <div class="table-custom mt-4">
+            <table class="table mb-0">
+                <thead>
+                    <tr>
+                        <th>Proyecto</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Página web (Proyecto de grado)</strong></td>
+                        <td>
+                            <p>Desarrollé una página web como parte de mi proyecto de grado en el nivel técnico medio,
+                                donde apliqué conocimientos básicos de diseño y estructura web. Esto lo realice en mi
+                                colegio alla por el año 2022.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="Perfil/img/pagina pasteleria.png" alt="pasteleria"
+                                        class="img-fluid rounded">
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="Perfil/img/pagina pasteleria 2.png" alt="pasteleria2"
+                                        class="img-fluid rounded">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sistema de control de laboratorios</strong></td>
+                        <td>
+                            <p>Participé en el desarrollo de un sistema para el control de laboratorios en la
+                                universidad, como parte de un proyecto integrador, aplicando análisis y organización de
+                                información. Esto lo realizamos mi grupo y yo en 5to semestre del año 2024.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="Perfil/img/lab1.png" alt="laboratorio" class="img-fluid rounded">
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="Perfil/img/lab2.png" alt="laboratorio2" class="img-fluid rounded">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Carro a control con ESP32</strong></td>
+                        <td>
+                            <p>Desarrollamos un carro a control utilizando ESP32 en la materia de Sistemas Digitales,
+                                con temática del personaje Boo de Mario. Tambien desarrollado para universidad en 4to
+                                semestre del año 2024, fue un proyecto divertido y creativo que nos permitió aplicar
+                                conocimientos de electrónica y programación.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="Perfil/img/buu1.jpeg" alt="carro" class="img-fluid rounded">
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="Perfil/img/buu2.jpg" alt="carro2" class="img-fluid rounded">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <hr>
+
+        <!-- FOOTER -->
+        <footer>
+            <h3>Mis Redes Sociales</h3>
+            <div style="margin: 20px 0;">
+                <a href="https://www.facebook.com/share/1AbK7WDpbH/" target="_blank" title="Facebook">
+                    <img src="Perfil/img/facebook.png" width="40" alt="facebook">
+                </a>
+                <a href="https://www.instagram.com/mecake.s?igsh=MXRhcWZybDhmNGdpeg==https://instagram.com"
+                    target="_blank" title="Instagram">
+                    <img src="Perfil/img/Instagram.png" width="70" alt="instagram">
+                </a>
+                <a href="https://www.tiktok.com/@elena327xd?_r=1&_t=ZS-95bbSNjqVqa" target="_blank" title="TikTok">
+                    <img src="Perfil/img/TikTok.png" width="75" alt="tiktok">
+                </a>
+                <a href="https://x.com/MariaCa70265638" target="_blank" title="X">
+                    <img src="Perfil/img/X.png" width="45" alt="x">
+                </a>
+                <a href="https://youtube.com/@mariacalle1163?si=FslB1FO7glD6ffmg" target="_blank" title="YouTube">
+                    <img src="Perfil/img/Youtube.png" width="60" alt="youtube">
+                </a>
+                <a href="https://github.com/elenacalle" target="_blank" title="GitHub">
+                    <img src="Perfil/img/github.png" width="50" alt="github">
+                </a>
+                <a href="https://s.team/p/jcgq-rpqg/kjgjmjvj" target="_blank" title="Steam">
+                    <img src="Perfil/img/Steam.png" width="50" alt="steam">
+                </a>
+                <a href="https://www.linkedin.com/in/elena-calle-6191582b7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                    target="_blank" title="LinkedIn">
+                    <img src="Perfil/img/linkedin.png" width="50" alt="linkedin">
+                </a>
+            </div>
+            <p><small>© 2026 - Maria Elena Calle Mamani</small></p>
+        </footer>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript Personalizado -->
+    <script>
+        // Efectos interactivos
+        document.addEventListener('DOMContentLoaded', function () {
+            // Animación al cargar
+            const elements = document.querySelectorAll('.card-custom, .grid-item, .header-section');
+            elements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+                el.style.animation = 'fadeIn 0.6s ease-out forwards';
+                el.style.opacity = '0';
+            });
+
+            // Efectos de scroll suave
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Click en fotos para mostrar detalles
+            const photos = document.querySelectorAll('.photo-carousel img');
+            photos.forEach(photo => {
+                photo.addEventListener('click', function () {
+                    console.log('Foto clickeada: ' + this.src);
+                    // Puedes agregar más interactividad aquí
+                });
+            });
+
+            // Contador de secciones
+            const sections = document.querySelectorAll('.section-title');
+            console.log(`Se encontraron ${sections.length} secciones principales`);
+
+            // Actualizar navbar activo al hacer scroll
+            const navLinks = document.querySelectorAll('.navbar-custom .nav-link');
+            const sections_array = document.querySelectorAll('[id^="inicio"], [id^="datos-personales"], [id^="datos-generales"], [id^="familia"], [id^="canciones"], [id^="juegos"], [id^="mision"], [id^="proyectos"]');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections_array.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').slice(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // Función para mostrar alertas personalizadas
+        function mostrarMensaje(titulo, mensaje) {
+            alert(titulo + '\n' + mensaje);
+        }
+
+        // Validación de formularios si los hay
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                console.log('Formulario enviado');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
